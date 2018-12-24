@@ -11,6 +11,8 @@ func SaveLogger(ctx iris.Context) {
 	var err model.Errlogger
 
 	ctx.ReadJSON(&err)
-
+	if err.Error!= "" {
+		ctx.WriteString("success")
+	}
 	fmt.Println(err)
 }

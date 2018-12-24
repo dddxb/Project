@@ -11,7 +11,7 @@ func Test_SaveLogger(t *testing.T) {
 	app := newApplogger()
 	e := httptest.New(t, app)
 
-	e.POST("/save_error_logger").WithJSON(iris.Map{"Error": "前端页面展示错误"}).Expect().Status(httptest.StatusOK).Body().Empty()
+	e.POST("/save_error_logger").WithJSON(iris.Map{"Error": "前端页面展示错误"}).Expect().Status(httptest.StatusOK).Body().Equal("success")
 
 }
 
