@@ -25,9 +25,12 @@ func newApp() *iris.Application {
 		ctx.ServeFile("./webui/dist/index.html", false)
 	})
 
+	//
 	app.Post("/login", controller.Login)
-
 	app.Get("/get_info", controller.UserInfo)
+	app.Post("/logout", controller.Logout)
+
+
 
 	app.Post("/save_error_logger", controller.SaveLogger)
 

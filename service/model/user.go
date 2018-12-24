@@ -1,18 +1,20 @@
 package model
 
-
-
 type UserLogin struct {
-	Password string    //`json:"PASSWORD"`
-	Username string    // `json:"USERNAME"`
+	Password string //`json:"PASSWORD"`
+	Username string // `json:"USERNAME"`
+}
+
+type LoginTest struct {
+	Username int
 }
 
 type UserInfo struct {
-	Name  string    `json:"username"`
-	User_id   int   `json:"user_id"`
-	Access   []string   `json:"access"`
-	Token   string    `json:"token"`
-	Avator   string  `json:"avator"`
+	Name    string   `json:"username"`
+	User_id int      `json:"user_id"`
+	Access  []string `json:"access"`
+	Token   string   `json:"token"`
+	Avator  string   `json:"avator"`
 }
 
 type Errlogger struct {
