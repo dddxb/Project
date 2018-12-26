@@ -7,6 +7,7 @@ import (
 	"github.com/kataras/iris"
 )
 
+//SaveLogger 存储日志
 func SaveLogger(ctx iris.Context) {
 	var err model.Errlogger
 

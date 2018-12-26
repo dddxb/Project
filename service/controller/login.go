@@ -4,11 +4,13 @@ import (
 	"Project/service/biz"
 	"Project/service/model"
 	"fmt"
-	"github.com/kataras/iris"
 	"regexp"
 	"strings"
+
+	"github.com/kataras/iris"
 )
 
+//Login 确认登陆信息
 func Login(ctx iris.Context) {
 	var usr model.User
 
@@ -50,16 +52,5 @@ func Login(ctx iris.Context) {
 		}
 	} else {
 		ctx.StatusCode(iris.StatusBadRequest)
-		//return
 	}
-
 }
-
-//super_admin := user{"super_admin",1,[]string{"super_admin","admin"},"super_admin","https://file.iviewui.com/dist/a0e88e83800f138b94d2414621bd9704.png"}
-//if usr.Username == "super_admin" {
-//	//结构体转Json
-//	back, _ := ctx.JSON(super_admin)
-//
-//
-//	ctx.Writef("Received: %#+v\n", back)
-//}
