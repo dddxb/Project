@@ -3,11 +3,12 @@ package biz
 import (
 	"Project/service/model"
 	"fmt"
+	//_调库
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 )
 
-//调库，查询状态
+//UserInfo 调库，查询状态
 func UserInfo(token string) model.User {
 	fmt.Println(token)
 	//创建orm引擎
@@ -20,14 +21,14 @@ func UserInfo(token string) model.User {
 	engine.ShowSQL(true)
 
 	//查询，省略查询password
-	users := make( []model.User, 0)
-	engine.Omit("PASSWORD").Where("TOKEN = ?",token).Find(&users)
+	users := make([]model.User, 0)
+	engine.Omit("PASSWORD").Where("TOKEN = ?", token).Find(&users)
 	fmt.Println(users)
 	//[{ 18753113305 1 super_admin super_admin https://file.iviewui.com/dist/a0e88e83800f138b94d2414621bd9704.png}]
 	//需要去掉外边的[ ]符号,然后返回
-	if len(users)>0 {
+	if len(users) > 0 {
 		return users[0]
-	}else{
-		return users[1]
 	}
+	return users[1]
+
 }

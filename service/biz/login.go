@@ -3,11 +3,12 @@ package biz
 import (
 	"Project/service/model"
 	"fmt"
+	//_连库
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 )
 
-//调库，查询状态
+//Login 调库，查询状态
 func Login(user model.User) int {
 	fmt.Println(user)
 	//创建orm引擎
@@ -25,11 +26,12 @@ func Login(user model.User) int {
 	if !has {
 		user1 := model.User{Username: user.Username}
 		if ok, _ := engine.Get(&user1); ok {
-			return 2 //2代表密码错误
-		} else {
-			return 3 //3代表手机号未注册
+			//2代表密码错误
+			return 2
 		}
-	} else {
-		return 1 //1代表有匹配项，登陆成功
+		//3代表手机号未注册
+		return 3
 	}
+	//1代表登陆成功
+	return 1
 }
